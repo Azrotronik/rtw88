@@ -46,29 +46,11 @@ rtw_core-objs += main.o \
 	   bf.o \
 	   regd.o
 
-obj-m       += rtw_8822b.o
-rtw_8822b-objs                := rtw8822b.o rtw8822b_table.o
-
-obj-m      += rtw_8822be.o
-rtw_8822be-objs               := rtw8822be.o
-
 obj-m       += rtw_8822c.o
 rtw_8822c-objs                := rtw8822c.o rtw8822c_table.o
 
 obj-m      += rtw_8822ce.o
 rtw_8822ce-objs               := rtw8822ce.o
-
-obj-m       += rtw_8723d.o
-rtw_8723d-objs                := rtw8723d.o rtw8723d_table.o
-
-obj-m      += rtw_8723de.o
-rtw_8723de-objs               := rtw8723de.o
-
-obj-m	+= rtw_8821c.o
-rtw_8821c-objs		:= rtw8821c.o rtw8821c_table.o
-
-obj-m	+= rtw_8821ce.o
-rtw_8821ce-objs		:= rtw8821ce.o
 
 obj-m         += rtw_pci.o
 rtw_pci-objs                  := pci.o
@@ -105,9 +87,7 @@ endif
 	@echo "Install rtw88 SUCCESS"
 
 uninstall:
-	@modprobe -r rtw_8822be
 	@modprobe -r rtw_8822ce
-	@modprobe -r rtw_8723de
 	@rm -f $(MODDESTDIR)/rtw_*.ko
 ifneq (,$(wildcard ./backup_drivers.tar))
 	@echo Restoring backups
